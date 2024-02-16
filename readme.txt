@@ -1,4 +1,4 @@
-=== Basic Copyright – Show a dynamic copyright notice in the footer of your WordPress site. ===
+=== Basic Copyright ===
 
 Plugin Name: Basic Copyright
 Plugin URI: https://jimmitchell.org/basic-copyright-wp-plugin/
@@ -9,12 +9,12 @@ Author URI: https://jimmitchell.org
 Donate link: https://ko-fi.com/jimmitchellmedia
 Requires at least: 4.6
 Tested up to: 6.4.3
-Version: 1.0.0
-Stable tag: 1.0.0
+Version: 1.0.1
+Stable tag: 1.0.1
 Requires PHP: 5.6.20
-Text Domain: jmitch-basic-copyright
+Text Domain: basic-copyright
 Domain Path: /languages
-License: GPL v2 or later
+License: GPL-2.0-or-later
 Contributors: jimmitchell
 
 
@@ -24,7 +24,7 @@ Makes "[basic_copyright]" available as a shortcode for use in your WordPress sit
 
 == Description ==
 
-This plugin makes "[basic_copyright]" available as a shortcode for use in your WordPress site theme footer.
+This plugin makes "[basic_copyright]" available as a shortcode for use in your site theme footer.
 
 
 
@@ -43,7 +43,7 @@ __User Data:__ This plugin does not collect any user data.
 
 __Cookies:__ This plugin does not set or rely on any cookies whatsoever.
 
-Basic Copyright is developed and maintained by [Jim Mitchell](https://mastodon.social/@jimmitchell).
+Basic Copyright is developed and maintained by [Jim Mitchell](https://social.lol/@jim).
 
 
 ### Support development ###
