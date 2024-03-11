@@ -57,7 +57,7 @@ function jmitch_basic_copyright() {
 		$basic_copyright = sprintf( '&copy; %s &ndash; %s %s', $first_post_year, $current_year, get_bloginfo( 'name' ) );
 	}
 
-	echo esc_html( $basic_copyright );
+	return esc_html( $basic_copyright );
 
 }
 add_shortcode( 'basic_copyright', 'jmitch_basic_copyright' );
