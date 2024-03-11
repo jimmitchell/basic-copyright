@@ -9,7 +9,7 @@
  * Dontate link: https://ko-fi.com/jimmitchellmedia/
  * Requires at least: 4.6
  * Test up to: 6.4
- * Version: 1.0.1
+ * Version: 1.0.2
  * Requires PHP: 5.6.20
  * Text Domain: basic-copyright
  * Domain Path: /languages
