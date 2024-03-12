@@ -9,11 +9,11 @@
  * Dontate link: https://ko-fi.com/jimmitchellmedia/
  * Requires at least: 4.6
  * Test up to: 6.4
- * Version: 1.0.0
+ * Version: 1.0.2
  * Requires PHP: 5.6.20
- * Text Domain: jmitch-basic-copyright
+ * Text Domain: basic-copyright
  * Domain Path: /languages
- * License: GPL v2 or later
+ * License: GPL-2.0-or-later
  */
  
 /*
@@ -47,8 +47,8 @@ function jmitch_basic_copyright() {
 	$first_post = $first_post_query[0];
 	$first_post_date = $first_post->post_date;
 
-	$first_post_year = date( 'Y', strtotime( $first_post_date ) );
-	$current_year = date( 'Y' );
+	$first_post_year = gmdate( 'Y', strtotime( $first_post_date ) );
+	$current_year = gmdate( 'Y' );
 
 	if ( $current_year === $first_post_year ) {
 		$basic_copyright = sprintf( '&copy; %s %s', $current_year, get_bloginfo( 'name' ) );
@@ -57,7 +57,7 @@ function jmitch_basic_copyright() {
 		$basic_copyright = sprintf( '&copy; %s &ndash; %s %s', $first_post_year, $current_year, get_bloginfo( 'name' ) );
 	}
 
-	echo esc_html( $basic_copyright );
+	return esc_html( $basic_copyright );
 
 }
 add_shortcode( 'basic_copyright', 'jmitch_basic_copyright' );
