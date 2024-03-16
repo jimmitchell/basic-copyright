@@ -8,8 +8,8 @@
  * Author URI: https://jimmitchell.org
  * Dontate link: https://ko-fi.com/jimmitchellmedia/
  * Requires at least: 4.6
- * Test up to: 6.4
- * Version: 1.0.1
+ * Test up to: 6.4.3
+ * Version: 1.0.2
  * Requires PHP: 5.6.20
  * Text Domain: basic-copyright
  * Domain Path: /languages
@@ -57,7 +57,7 @@ function jmitch_basic_copyright() {
 		$basic_copyright = sprintf( '&copy; %s &ndash; %s %s', $first_post_year, $current_year, get_bloginfo( 'name' ) );
 	}
 
-	echo esc_html( $basic_copyright );
+	return esc_html( $basic_copyright );
 
 }
 add_shortcode( 'basic_copyright', 'jmitch_basic_copyright' );

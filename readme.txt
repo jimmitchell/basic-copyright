@@ -9,8 +9,8 @@ Author URI: https://jimmitchell.org
 Donate link: https://ko-fi.com/jimmitchellmedia
 Requires at least: 4.6
 Tested up to: 6.4.3
-Version: 1.0.1
-Stable tag: 1.0.1
+Version: 1.0.2
+Stable tag: 1.0.2
 Requires PHP: 5.6.20
 Text Domain: basic-copyright
 Domain Path: /languages
@@ -101,6 +101,6 @@ For more information, visit the [Basic Copyright Plugin Homepage](https://jimmit
 
 If you like Basic Copyright, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/basic-copyright/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
-**Version 1.0.0 (02-13-2024)**
+**Version 1.0.2 (03-11-2024)**
 
 * Initial release.
