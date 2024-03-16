@@ -8,7 +8,7 @@ Author: Jim Mitchell
 Author URI: https://jimmitchell.org
 Donate link: https://ko-fi.com/jimmitchellmedia
 Requires at least: 4.6
-Tested up to: 6.4.3
+Tested up to: 6.5
 Version: 1.0.2
 Stable tag: 1.0.2
 Requires PHP: 5.6.20
