@@ -81,9 +81,9 @@ If you like Basic Copyright, please take a moment to [give a 5-star rating](http
 
 
 
-== Screenshots ==
+== Frequently Asked Questions ==
 
-1. Basic Copyright: Shortcode
+None as of yet.
 
 
 
