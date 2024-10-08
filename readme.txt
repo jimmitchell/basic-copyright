@@ -8,7 +8,7 @@ Author: Jim Mitchell
 Author URI: https://jimmitchell.org
 Donate link: https://ko-fi.com/jimmitchellmedia
 Requires at least: 4.6
-Tested up to: 6.1
+Tested up to: 6.6.2
 Version: 1.0.3
 Stable tag: 1.0.3
 Requires PHP: 5.6.20
@@ -89,7 +89,7 @@ None as of yet.
 
 == Upgrade Notice ==
 
-To upgrade Basic Copyright, remove the old version and replace with the new version. Or just click "Update" from the Plugins screen and let WordPress do it for you automatically.
+Click "Update" from the Plugins screen and let WordPress do it for you automatically.
 
 For more information, visit the [Basic Copyright Plugin Homepage](https://jimmitchell.org/basic-copyright-wp-plugin/).
 

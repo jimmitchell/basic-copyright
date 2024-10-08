@@ -8,7 +8,7 @@
  * Author URI: https://jimmitchell.org
  * Dontate link: https://ko-fi.com/jimmitchellmedia/
  * Requires at least: 4.6
- * Test up to: 6.6.1
+ * Test up to: 6.6.2
  * Version: 1.0.3
  * Requires PHP: 5.6.20
  * Text Domain: basic-copyright
