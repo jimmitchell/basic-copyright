@@ -8,7 +8,7 @@
  * Author URI: https://jimmitchell.org
  * Dontate link: https://ko-fi.com/jimmitchellmedia/
  * Requires at least: 4.6
- * Test up to: 6.6.2
+ * Test up to: 6.7
  * Version: 1.0.3
  * Requires PHP: 5.6.20
  * Text Domain: basic-copyright
@@ -67,7 +67,7 @@ add_shortcode( 'basic_copyright', 'jmitch_basic_copyright' );
 function jmitch_basic_copyright_settings_link( $links ) {
 
 	$url = esc_url( 'https://ko-fi.com/jimmitchellmedia/' );
-    $donate_link = '<a href="'. $url .'" target="_blank">' . esc_html__( 'Donate', 'jmitch-basic-copyright' ) . '</a>';
+    $donate_link = '<a href="'. $url .'" target="_blank">' . esc_html__( 'Donate', 'basic-copyright' ) . '</a>';
 	
     array_push(
 		$links,

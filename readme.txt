@@ -8,7 +8,7 @@ Author: Jim Mitchell
 Author URI: https://jimmitchell.org
 Donate link: https://ko-fi.com/jimmitchellmedia
 Requires at least: 4.6
-Tested up to: 6.6.2
+Tested up to: 6.7
 Version: 1.0.3
 Stable tag: 1.0.3
 Requires PHP: 5.6.20
@@ -58,9 +58,9 @@ Links, toots, boosts, tweets and likes also appreciated. Thank you! :)
 
 ### How to install the plugin ###
 
-1. Upload the plugin to your blog and activate. There are no settings that need to be configured.
+1. Upload the plugin to your blog and activate. No settings need to be configured.
 
-[More info on installing WP plugins &raquo;](https://wordpress.org/support/article/managing-plugins/#installing-plugins)
+[More info on installing WP plugins](https://wordpress.org/support/article/managing-plugins/#installing-plugins)
 
 
 ### How to use the plugin ###
@@ -70,7 +70,7 @@ Basic Copyright makes a "[basic_copyright]" shortcode available for use in your 
 
 ### Plugin Upgrades ###
 
-To upgrade Basic Copyright, remove the old version and replace with the new version. Or just click "Update" from the Plugins screen and let WordPress do it for you automatically.
+Just click "Update" from the Plugins screen and let WordPress do it for you automatically.
 
 For more information, visit the [Basic Copyright Homepage](https://jimmitchell.org/basic-copyright-wp-plugin/).
 
@@ -89,7 +89,7 @@ None as of yet.
 
 == Upgrade Notice ==
 
-Click "Update" from the Plugins screen and let WordPress do it for you automatically.
+Just click "Update" from the Plugins screen and let WordPress do it for you automatically.
 
 For more information, visit the [Basic Copyright Plugin Homepage](https://jimmitchell.org/basic-copyright-wp-plugin/).
 
