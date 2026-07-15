@@ -15,10 +15,10 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/"
 
 #. translators: 1: copyright year or year range, 2: copyright holder name.
-#: basic-copyright.php:98
+#: basic-copyright.php:125
 msgid "© %1$s %2$s"
 msgstr ""
 
-#: basic-copyright.php:110
+#: basic-copyright.php:141
 msgid "Donate"
 msgstr ""

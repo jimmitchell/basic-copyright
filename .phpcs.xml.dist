@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<ruleset name="Basic Copyright">
+	<description>PHPCS ruleset for the Basic Copyright plugin.</description>
+
+	<file>.</file>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+
+	<arg value="sp"/>
+	<arg name="extensions" value="php"/>
+	<arg name="parallel" value="8"/>
+
+	<rule ref="WordPress">
+		<!-- File-per-class naming does not apply to a single-file plugin. -->
+		<exclude name="WordPress.Files.FileName"/>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="basic-copyright"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="jmitch"/>
+				<element value="basic_copyright"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Check PHP cross-version compatibility against the plugin minimum. -->
+	<config name="testVersion" value="7.4-"/>
+	<rule ref="PHPCompatibilityWP"/>
+	<config name="minimum_wp_version" value="6.0"/>
+</ruleset>
