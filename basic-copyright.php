@@ -7,10 +7,10 @@
  * Author: Jim Mitchell
  * Author URI: https://jimmitchell.org
  * Donate link: https://ko-fi.com/jimmitchellmedia/
- * Requires at least: 4.6
+ * Requires at least: 6.0
  * Tested up to: 6.7
- * Version: 1.0.4
- * Requires PHP: 5.6.20
+ * Version: 1.1.0
+ * Requires PHP: 7.4
  * Text Domain: basic-copyright
  * Domain Path: /languages
  * License: GPL-2.0-or-later
@@ -35,29 +35,69 @@
 
 if ( ! defined( 'ABSPATH' ) ) die();
 
-// *** Query for the first post, determine the current year, and output the dynamic copyright as a shortcode...
-function jmitch_basic_copyright() {
+// *** Look up the year of the oldest published post, cached in a transient...
+function jmitch_basic_copyright_first_year() {
+
+	$first_post_year = get_transient( 'basic_copyright_first_year' );
+
+	if ( false === $first_post_year ) {
+
+		$first_post_query = get_posts( array(
+			'numberposts' => 1,
+			'post_status' => 'publish',
+			'orderby' => 'date',
+			'order' => 'ASC'
+		) );
+
+		// '0' marks "no published posts" so the empty result is cached too.
+		$first_post_year = ! empty( $first_post_query ) ? get_the_date( 'Y', $first_post_query[0] ) : '0';
+
+		set_transient( 'basic_copyright_first_year', $first_post_year, WEEK_IN_SECONDS );
+
+	}
+
+	return $first_post_year;
+
+}
+
+// *** Clear the cached first post year whenever a post is published or unpublished...
+function jmitch_basic_copyright_flush_cache( $new_status, $old_status ) {
+
+	if ( 'publish' === $new_status || 'publish' === $old_status ) {
+		delete_transient( 'basic_copyright_first_year' );
+	}
+
+}
+add_action( 'transition_post_status', 'jmitch_basic_copyright_flush_cache', 10, 2 );
+
+// *** Determine the year range and output the dynamic copyright as a shortcode...
+function jmitch_basic_copyright( $atts = array() ) {
+
+	$atts = shortcode_atts( array(
+		'start_year' => '',
+		'holder'     => get_bloginfo( 'name' ),
+		'separator'  => '–'
+	), $atts, 'basic_copyright' );
 
 	$current_year = wp_date( 'Y' );
 
-	$first_post_query = get_posts( array(
-		'numberposts' => 1,
-		'post_status' => 'publish',
-		'orderby' => 'date',
-		'order' => 'ASC'
-	) );
+	// An explicit start_year attribute skips the first post lookup entirely.
+	$start_year = absint( $atts['start_year'] );
+	if ( ! $start_year ) {
+		$start_year = absint( jmitch_basic_copyright_first_year() );
+	}
 
-	// Fall back to the current year on sites with no published posts.
-	$first_post_year = ! empty( $first_post_query ) ? get_the_date( 'Y', $first_post_query[0] ) : $current_year;
-
-	if ( $current_year === $first_post_year ) {
-		$basic_copyright = sprintf( '© %s %s', $current_year, get_bloginfo( 'name' ) );
+	if ( ! $start_year || $start_year >= (int) $current_year ) {
+		$years = $current_year;
 	}
 	else {
-		$basic_copyright = sprintf( '© %s – %s %s', $first_post_year, $current_year, get_bloginfo( 'name' ) );
+		$years = sprintf( '%s %s %s', $start_year, $atts['separator'], $current_year );
 	}
 
-	return esc_html( $basic_copyright );
+	/* translators: 1: copyright year or year range, 2: copyright holder name. */
+	$basic_copyright = sprintf( __( '© %1$s %2$s', 'basic-copyright' ), $years, $atts['holder'] );
+
+	return apply_filters( 'basic_copyright', esc_html( $basic_copyright ), $atts );
 
 }
 add_shortcode( 'basic_copyright', 'jmitch_basic_copyright' );
@@ -67,14 +107,9 @@ add_shortcode( 'basic_copyright', 'jmitch_basic_copyright' );
 function jmitch_basic_copyright_settings_link( $links ) {
 
 	$url = esc_url( 'https://ko-fi.com/jimmitchellmedia/' );
-    $donate_link = '<a href="'. $url .'" target="_blank">' . esc_html__( 'Donate', 'basic-copyright' ) . '</a>';
-	
-    array_push(
-		$links,
-		$donate_link
-	);
+	$links[] = '<a href="' . $url . '" target="_blank" rel="noopener">' . esc_html__( 'Donate', 'basic-copyright' ) . '</a>';
 
 	return $links;
 
 }
-add_filter( 'plugin_action_links_basic-copyright/basic-copyright.php', 'jmitch_basic_copyright_settings_link' );
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'jmitch_basic_copyright_settings_link' );
