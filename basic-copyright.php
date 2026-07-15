@@ -6,10 +6,10 @@
  * Tags: copyright, dynamic copyright, shortcode
  * Author: Jim Mitchell
  * Author URI: https://jimmitchell.org
- * Dontate link: https://ko-fi.com/jimmitchellmedia/
+ * Donate link: https://ko-fi.com/jimmitchellmedia/
  * Requires at least: 4.6
- * Test up to: 6.7
- * Version: 1.0.3
+ * Tested up to: 6.7
+ * Version: 1.0.4
  * Requires PHP: 5.6.20
  * Text Domain: basic-copyright
  * Domain Path: /languages
@@ -38,23 +38,23 @@ if ( ! defined( 'ABSPATH' ) ) die();
 // *** Query for the first post, determine the current year, and output the dynamic copyright as a shortcode...
 function jmitch_basic_copyright() {
 
+	$current_year = wp_date( 'Y' );
+
 	$first_post_query = get_posts( array(
 		'numberposts' => 1,
 		'post_status' => 'publish',
+		'orderby' => 'date',
 		'order' => 'ASC'
 	) );
 
-	$first_post = $first_post_query[0];
-	$first_post_date = $first_post->post_date;
-
-	$first_post_year = gmdate( 'Y', strtotime( $first_post_date ) );
-	$current_year = gmdate( 'Y' );
+	// Fall back to the current year on sites with no published posts.
+	$first_post_year = ! empty( $first_post_query ) ? get_the_date( 'Y', $first_post_query[0] ) : $current_year;
 
 	if ( $current_year === $first_post_year ) {
-		$basic_copyright = sprintf( '&copy; %s %s', $current_year, get_bloginfo( 'name' ) );
+		$basic_copyright = sprintf( '© %s %s', $current_year, get_bloginfo( 'name' ) );
 	}
 	else {
-		$basic_copyright = sprintf( '&copy; %s &ndash; %s %s', $first_post_year, $current_year, get_bloginfo( 'name' ) );
+		$basic_copyright = sprintf( '© %s – %s %s', $first_post_year, $current_year, get_bloginfo( 'name' ) );
 	}
 
 	return esc_html( $basic_copyright );

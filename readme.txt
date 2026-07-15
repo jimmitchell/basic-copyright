@@ -9,8 +9,8 @@ Author URI: https://jimmitchell.org
 Donate link: https://ko-fi.com/jimmitchellmedia
 Requires at least: 4.6
 Tested up to: 6.7
-Version: 1.0.3
-Stable tag: 1.0.3
+Version: 1.0.4
+Stable tag: 1.0.4
 Requires PHP: 5.6.20
 Text Domain: basic-copyright
 Domain Path: /languages
@@ -100,6 +100,13 @@ For more information, visit the [Basic Copyright Plugin Homepage](https://jimmit
 *Thank you to everyone who shares feedback for Basic Copyright!*
 
 If you like Basic Copyright, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/basic-copyright/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+
+**Version 1.0.4 (07-15-2026)**
+
+* Fixed a PHP error when the shortcode is used on a site with no published posts. The current year is now shown as a fallback.
+* Fixed the copyright year respecting the site's timezone setting instead of UTC around the new year.
+* Output now uses literal © and – characters instead of HTML entities for more reliable escaping.
+* Fixed typos in the plugin header.
 
 **Version 1.0.2 (03-11-2024)**
 
