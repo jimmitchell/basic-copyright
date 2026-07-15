@@ -1,0 +1,13 @@
+# Directories
+/.git
+/.github
+/node_modules
+/vendor
+
+# Files
+/.distignore
+/.gitignore
+/.phpcs.xml.dist
+/composer.json
+/composer.lock
+.DS_Store
