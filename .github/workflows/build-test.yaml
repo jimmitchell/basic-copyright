@@ -16,6 +16,9 @@ jobs:
 
     - name: Run plugin check
       uses: wordpress/plugin-check-action@v1
+      with:
+        exclude-directories: 'vendor,node_modules'
+        exclude-files: '.distignore,.gitignore,.phpcs.xml.dist,composer.json,composer.lock'
 
   phpcs:
     runs-on: ubuntu-latest

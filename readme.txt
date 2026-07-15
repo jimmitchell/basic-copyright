@@ -8,7 +8,7 @@ Author: Jim Mitchell
 Author URI: https://jimmitchell.org
 Donate link: https://ko-fi.com/jimmitchellmedia
 Requires at least: 6.0
-Tested up to: 6.7
+Tested up to: 7.0
 Version: 1.1.0
 Stable tag: 1.1.0
 Requires PHP: 7.4
@@ -123,6 +123,7 @@ If you like Basic Copyright, please take a moment to [give a 5-star rating](http
 * The copyright output is now translatable.
 * Added an uninstall routine to clean up the cached data.
 * Raised minimum requirements to WordPress 6.0 and PHP 7.4.
+* Confirmed compatibility with WordPress 7.0.
 
 **Version 1.0.4 (07-15-2026)**
 
